@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 
 function Header() {
-  const { user } = useUserContext();
+  const { user ,logoutUser} = useUserContext();
   const { openModalForAdd, activeTasks } = useTasks();
 
   const router = useRouter();
@@ -54,9 +54,14 @@ function Header() {
           {userId ? "Add a new Task" : "Login / Register"}
         </button>
 
+        {
+          userId && <button  className="px-8 py-3 bg-[#3aafae] text-white rounded-[50px]
+          hover:bg-[#00A1F1] hover:text-white transition-all duration-200 ease-in-out" onClick={logoutUser}>Logout</button>
+        }
+
         <div className="flex gap-4 items-center">
           <Link
-            href="https://github.com/Maclinz/taskfyer"
+            href="https://github.com/centman7089"
             passHref
             target="_blank"
             rel="noopener noreferrer"
@@ -65,7 +70,7 @@ function Header() {
             {github}
           </Link>
           <Link
-            href="https://github.com/Maclinz/taskfyer"
+            href="https://github.com/centman7089"
             passHref
             target="_blank"
             rel="noopener noreferrer"
@@ -74,7 +79,7 @@ function Header() {
             {moon}
           </Link>
           <Link
-            href="https://github.com/Maclinz/taskfyer"
+            href="https://github.com/centman7089"
             passHref
             target="_blank"
             rel="noopener noreferrer"
